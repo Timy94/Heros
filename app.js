@@ -19,6 +19,8 @@ app.set('view options', {
 });
 app.set('views', path.join(__dirname, './views'));
 
+
+//使用body-parser中间件
 app.use(bodyParser.urlencoded({
     extended: false
 }));
