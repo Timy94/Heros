@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>用户注册</title>
+	<link rel="stylesheet" href="../styles/register.css">
+	<script src="../js/jquery.js"></script>
+	<style>
+		li:last-child {
+			justify-content: center;
+		}
+
+		.info {
+			margin-left: 5px;
+			line-height: 46px;
+			color: green;
+		}
+
+		.error {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="register">
+		<form id="ajaxForm">
+			<ul>
+				<li>
+					<label for="">用户名</label>
+					<input type="text" name="username" class="name">
+					<span class="info error"></span>
+				</li>
+				<li>
+					<label for="">密码</label>
+					<input type="password" name="password" class="pass">
+				</li>
+				<li>
+					<label for=""></label>
+					<input type="button" class="submit " value="立即注册">
+				</li>
+				<li><a href="./login.html">去登录</a></li>
+			</ul>
+		</form>
+	</div>
+	<script>
+		$(function () {
+
+			$('.name').on('blur', function () {
+				let username = $(this).val().trim();
+				if (!username) return;
+				$.ajax({
+					url: '/validUserName',
+					data: {
+						username
+					},
+					dataType: 'json',
+					success: res => {
+						if (res.code == 200) {
+							$('.info').text(res.msg).removeClass('error');
+						} else if (res.code == 201) {
+							$('.info').text(res.msg).addClass('error');
+						}
+					}
+				})
+			});
+
+			$('.submit').on('click', function () {
+				$.ajax({
+					type: 'post',
+					url: '/register',
+					data: $('#ajaxForm').serialize(),
+					dataType: 'json',
+					beforeSend: () => $('.info').hasClass('error'),
+					success: (res) => {
+						alert(res.msg);
+						if (res.code == 200) {
+							location.href = './login.html'
+						}
+					}
+				})
+			});
+
+		});
+	</script>
+</body>
+
+</html>
