@@ -1,0 +1,53 @@
+[
+    {
+        "username": "admin",
+        "password": "123456",
+        "heros": [
+            {
+                "name": "test",
+                "gender": "1",
+                "img": "",
+                "id": 5
+            },
+            {
+                "name": "安达市多",
+                "gender": "0",
+                "img": "upload_6f8878d2b2426c697406bddc8ba45e05.jfif",
+                "id": "4"
+            },
+            {
+                "name": "搭嘎",
+                "gender": "0",
+                "img": "upload_a2edb503e5523cc38a1d46e61758877f.jpg",
+                "id": 3
+            },
+            {
+                "name": "史蒂芬123",
+                "gender": "1",
+                "img": "upload_cb1963e352f4147c10f0ae50d5255ec3.jpg",
+                "id": "2",
+                "isDelete": true
+            },
+            {
+                "name": "afda",
+                "gender": "1",
+                "img": "upload_7c65af362c0d942da7ec24fdbdd9d717.jpg",
+                "id": 1,
+                "isDelete": false
+            }
+        ]
+    },
+    {
+        "username": "timy",
+        "password": "123456",
+        "heros": [
+            {
+                "name": "德邦",
+                "gender": 0,
+                "img": "0.jpg",
+                "id": 1,
+                "isDelete": false
+            }
+        ]
+    }
+]
